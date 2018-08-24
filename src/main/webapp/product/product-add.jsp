@@ -34,66 +34,77 @@
 <body>
 <div class="page-container">
 	<form  method="post" class="form form-horizontal" id="form-article-add">
-	<input type="hidden" name="id" value="${requestScope.list1.id}">
+	<c:if test="${requestScope.info==null}">
+	<input type="hidden" name="type_id" value="${requestScope.list1.id}">
+	</c:if>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>产品标题：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="" placeholder="" id="" name="fullname">
+				<input type="text" class="input-text" value="${requestScope.info.fullname}" placeholder="" id="" name="fullname" >
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">优先级：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" value="0" placeholder="" id="" name="priority">
+				<input type="text" class="input-text" value="${requestScope.info.priority}" placeholder="" id="" name="priority">
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">产品展示价格：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="nowprice" id="" placeholder="" value="" class="input-text" style="width:90%">
+				<input type="text" name="nowprice" id="" placeholder="" value="${requestScope.info.nowprice}" class="input-text" style="width:90%">
 				元</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">市场价格：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" name="price" id="" placeholder="" value="" class="input-text" style="width:90%">
+				<input type="text" name="price" id="" placeholder="" value="${requestScope.info.price}" class="input-text" style="width:90%">
 				元</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">活动：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="activity" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+				<textarea   name="activity" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.activity}</textarea>
+				
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">销售信息：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="sale" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+				<textarea name="sale" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.sale}</textarea>
+				
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">提示信息：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="tip" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+				<textarea name="tip" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.tip}</textarea>
+				
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">备注：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<textarea name="comments" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)"></textarea>
-				<p class="textarea-numberbar"><em class="textarea-length">0</em>/200</p>
+				<textarea name="comments" cols="" rows="" class="textarea"  placeholder="说点什么...最少输入10个字符" datatype="*10-100" dragonfly="true" nullmsg="备注不能为空！" onKeyUp="$.Huitextarealength(this,200)">${requestScope.info.comments}</textarea>
+				
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">商品详情：</label>
 			<div class="formControls col-xs-8 col-sm-9" > 
 			    
-				<script  id="editor" name="info"   type="text/plain" style="width:100%;height:400px;" > </script> 
+				<script  id="editor" name="info"   type="text/plain" style="width:100%;height:400px;" >${requestScope.info.info} </script> 
 			</div>
 		</div>
+		<span class="inputspan"> 
+			<div class="picList" name="pics"  width="300"  height="200+" rows="2" cols="5" >
+				<c:forEach items="${requestScope.info.piclist}" var="p">
+				<item url="${p}" >
+				</c:forEach>
+			</div>
+		</span>
+		
+		
 		
 		
 		
@@ -102,7 +113,13 @@
 		
 		<div class="row cl">
 			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button onClick="save();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 提交审核</button>
+			  <c:if test="${requestScope.info==null}">
+				<button onClick="save();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+			  </c:if>
+			  <c:if test="${requestScope.info!=null}">
+			    <input name="id" value="${requestScope.info.id}">
+				<button onClick="usave();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+			  </c:if>
 				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
 		</div>
@@ -124,9 +141,25 @@
 <script type="text/javascript" src="../lib/ueditor/1.4.3/ueditor.config.js"></script>
 <script type="text/javascript" src="../lib/ueditor/1.4.3/ueditor.all.min.js"> </script>
 <script type="text/javascript" src="../lib/ueditor/1.4.3/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="../fileupload/js/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" href="../fileupload/css/font-awesome.min.css">
+<script type="text/javascript" src="../fileupload/js/piclist.js"></script>
 <script type="text/javascript">
 function  save() {
 	var url = "product-insert"
+		$.ajax({
+			type : "post",
+			async : true,  //yibu请求
+			url : url,
+			timeout:1000,
+			data: $('.form-horizontal').serialize(),
+			success:function(dates){
+				window.parent.location.reload();
+			}
+		});
+}
+function  usave() {
+	var url = "product-update"
 		$.ajax({
 			type : "post",
 			async : true,  //同步请求

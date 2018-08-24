@@ -55,6 +55,12 @@ public class type_controller {
 		pservice.insert(p);
 		return new jsonInfo(1, "");
 	}
+	  @RequestMapping("product-update")
+	  public  @ResponseBody jsonInfo productUpdate(Product p) {
+		  System.out.println(111);
+		  pservice.update(p);
+		  return new jsonInfo(1, "");
+	}
 	  
 	  
 	  @RequestMapping("add")
@@ -67,6 +73,11 @@ public class type_controller {
 	  @RequestMapping("product-add")
 	  public String productadd(ModelMap m,int id) {
 		  m.put("list1",service.ById(id).get(0));
+		  return "product/product-add";
+	}
+	  @RequestMapping("product-edit")
+	  public String productedit(Integer id,ModelMap m) {
+		  m.put("info",pservice.byId(id).get(0));
 		  return "product/product-add";
 	}
 	  @RequestMapping("update_off")

@@ -26,7 +26,7 @@ public class product_serviceImpl implements product_service{
 		
 	}
 
-	public List<Product> byId(int id) {
+	public List<Product> byId(Integer id) {
 		return dao.byId(id);
 	}
 
@@ -40,6 +40,10 @@ public class product_serviceImpl implements product_service{
 
 	public List<Product> see(int id) {
 		return dao.see(id);
+	}
+
+	public void update(Product p) {
+		dao.update(p);
 	}
 
 }
