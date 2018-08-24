@@ -11,4 +11,5 @@ public interface product_service {
 	public void update_on(int id);
 	public List<Product> byId(int id);
 	public List<Product> byTypeid(int id);
+	public List<Product> see(int id);
 }

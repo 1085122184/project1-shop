@@ -38,4 +38,8 @@ public class product_serviceImpl implements product_service{
 		return dao.byTypeid(id);
 	}
 
+	public List<Product> see(int id) {
+		return dao.see(id);
+	}
+
 }

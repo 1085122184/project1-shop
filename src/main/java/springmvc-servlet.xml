@@ -27,22 +27,22 @@
 	<context:component-scan base-package="controller"></context:component-scan>
     <context:component-scan base-package="dao"></context:component-scan>
 	<context:component-scan base-package="serviceImpl"></context:component-scan>
+	
 	<!-- 静态资源处理 -->
 	<mvc:default-servlet-handler/>
-
-	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" 
-		/> -->
+     
+	<!-- <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/> -->
 
 	<!-- 控制器适配 -->
-	<bean
-
-		class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+     <property name="maxUploadSize" value="104857600" />
+     <property name="maxInMemorySize" value="4096" />
+     <property name="defaultEncoding" value="UTF-8"></property>
+		</bean>
 	<!-- 视图获取器 -->
-	<bean
-
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass"
-			value="org.springframework.web.servlet.view.JstlView" />
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
 	</bean>

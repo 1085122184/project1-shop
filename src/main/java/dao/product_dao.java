@@ -24,4 +24,6 @@ public interface product_dao {
 	public List<Product> byId(int id);
 	@Select("select p.*,t.name tname from product p inner join type t on t.id=p.type_id where type_id=#{id}")
 	public List<Product> byTypeid(int id);
+	@Select("select p.*,t.name tname from product p inner join type t on t.id=p.type_id where p.id=#{id}")
+	public List<Product> see(int id);
 }

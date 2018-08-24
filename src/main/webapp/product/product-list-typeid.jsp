@@ -73,6 +73,7 @@
 						        <a style="text-decoration:none;display: none;" id="on${r.id}" onClick="product_start(this,${r.id})" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a> 
 						        <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
 						        <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						        <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe725;</i></a>
 						   </td>
 						</c:if>
 						<c:if test="${r.status==1 }">
@@ -82,6 +83,7 @@
 						       <a style="text-decoration:none;display: none;"id="off${r.id}"  onClick="product_stop(this,${r.id})" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>
 						       <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
 						       <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						       <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe725;</i></a>
 						   </td>
 						</c:if>
 						<!--  

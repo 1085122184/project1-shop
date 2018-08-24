@@ -63,8 +63,8 @@
 						<td><a onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img width="60" class="product-thumb" src="temp/product/Thumb/6204.jpg"></a></td>
 						<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img title="国内品牌" src="static/h-ui.admin/images/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
 						<td class="text-l">${r.info}</td>
-						<td><span class="price">${r.nowprice}</span> 元/个</td>
-						<td><span class="price">${r.price}</span> 元/个</td>
+						<td><span class="price">${r.nowprice}</span> 元</td>
+						<td><span class="price">${r.price}</span> 元</td>
 						
 						<c:if test="${r.status==0 }">
 						   <td class="td-status" ><span class="label label-success radius" id="mainContent${r.id}">${r.status_name}</span></td>
@@ -73,6 +73,7 @@
 						        <a style="text-decoration:none;display: none;" id="on${r.id}" onClick="product_start(this,${r.id})" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a> 
 						        <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
 						        <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						         <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe725;</i></a>
 						   </td>
 						</c:if>
 						<c:if test="${r.status==1 }">
@@ -82,6 +83,7 @@
 						       <a style="text-decoration:none;display: none;"id="off${r.id}"  onClick="product_stop(this,${r.id})" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>
 						       <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-add.html','10001')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
 						       <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						       <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe725;</i></a>
 						   </td>
 						</c:if>
 						<!--  
@@ -232,6 +234,15 @@ function product_del(obj,id){
 		});		
 	});
 }
+function product_see(title,url) {
+	var index = layer.open({
+		type: 2,
+		title: title,
+		content: url
+	});
+	layer.full(index);
+}
+
 </script>
 </body>
 </html>

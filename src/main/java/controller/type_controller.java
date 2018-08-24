@@ -82,4 +82,11 @@ public class type_controller {
 		 List<Product> list=pservice.byId(id);
 		 return list;
 	}
+	  @RequestMapping("see")
+	  public String see(int id,ModelMap m) {
+		  
+		  m.put("list",pservice.see(id));
+		  
+		return "product/product-see";
+	}
 }
