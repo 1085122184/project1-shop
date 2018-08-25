@@ -66,23 +66,23 @@
 						<td><span class="price">${r.nowprice}</span> 元</td>
 						<td><span class="price">${r.price}</span> 元</td>
 						
-						<c:if test="${r.status==0 }">
+						<c:if test="${r.status==0}">
 						   <td class="td-status" ><span class="label label-success radius" id="mainContent${r.id}">${r.status_name}</span></td>
 						   <td class="td-manage">
 						        <a style="text-decoration:none" id="off${r.id}"  onClick="product_stop(this,${r.id})" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a> 
 						        <a style="text-decoration:none;display: none;" id="on${r.id}" onClick="product_start(this,${r.id})" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a> 
 						        <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-edit?id=${r.id}')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
-						        <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						        <a style="text-decoration:none" class="ml-5" onClick="product_del(this,${r.id})" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
 						         <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe725;</i></a>
 						   </td>
 						</c:if>
-						<c:if test="${r.status==1 }">
+						<c:if test="${r.status==1}">
 						   <td class="td-status"><span class="label label-success radius" style="background-color: #999999" id="mainContent${r.id}">${r.status_name}</span></td>
 						   <td class="td-manage">
 						       <a style="text-decoration:none"id="on${r.id}" onClick="product_start(this,${r.id})" href="javascript:;" title="发布"><i class="Hui-iconfont">&#xe603;</i></a> 
 						       <a style="text-decoration:none;display: none;"id="off${r.id}"  onClick="product_stop(this,${r.id})" href="javascript:;" title="下架"><i class="Hui-iconfont">&#xe6de;</i></a>
 						       <a style="text-decoration:none" class="ml-5" onClick="product_edit('产品编辑','product-edit?id=${r.id}')" href="javascript:;" title="编辑"><i class="Hui-iconfont">&#xe6df;</i></a> 
-						       <a style="text-decoration:none" class="ml-5" onClick="product_del(this,'10001')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+						       <a style="text-decoration:none" class="ml-5" onClick="product_del(this,${r.id})" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
 						       <a style="text-decoration:none" class="ml-5" onClick="product_see('商品详情','see?id=${r.id}')" href="javascript:;" title="查看"><i class="Hui-iconfont">&#xe725;</i></a>
 						   </td>
 						</c:if>
@@ -200,6 +200,27 @@ function product_start(obj,id){
 	});
 }
 
+/*产品-删除*/
+function product_del(obj,id){
+	layer.confirm('确认要删除吗？',function(index){
+		var url = "product-del?id="+id;
+	$.ajax({
+		type : "post",
+		async : false,  //同步请求
+		url : url,
+		timeout:1000,
+		success:function(dates){
+			//$(obj).parents("tr").remove();
+			window.parent.location.reload();
+		  layer.msg('删除成功!',{icon:1,time:1000});
+		},
+		error: function() {
+           // alert("失败，请稍后再试！");
+        }
+	});
+	});
+}
+
 /*产品-申请上线*/
 function product_shenqing(obj,id){
 	$(obj).parents("tr").find(".td-status").html('<span class="label label-default radius">待审核</span>');
@@ -218,22 +239,7 @@ function product_edit(title,url){
 }
 
 /*产品-删除*/
-function product_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
-}
+
 function product_see(title,url) {
 	var index = layer.open({
 		type: 2,

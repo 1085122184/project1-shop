@@ -8,6 +8,7 @@ public interface product_service {
 	public List<Product> select();
 	public void insert(Product p);
 	public void update(Product p);
+	public void delete(int id);
 	public void update_off(int id);
 	public void update_on(int id);
 	public List<Product> byId(Integer id);

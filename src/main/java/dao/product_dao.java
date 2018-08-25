@@ -2,6 +2,7 @@ package dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -18,6 +19,8 @@ public interface product_dao {
 	public void insert(Product p);
     @Update("update product set fullname=#{fullname},priority=#{priority},nowprice=#{nowprice},price=#{price},activity=#{activity},sale=#{sale},tip=#{tip},comments=#{comments},info=#{info},pics=#{pics} where id=#{id}")
     public void update(Product p);
+    @Delete("delete from product where id=#{id}")
+    public void delete(int id);
 	@Update("update product set status=1 where id=#{id}")
     public void update_off(int id);
 	@Update("update product set status=0 where id=#{id}")

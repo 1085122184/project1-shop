@@ -46,4 +46,8 @@ public class product_serviceImpl implements product_service{
 		dao.update(p);
 	}
 
+	public void delete(int id) {
+		dao.delete(id);
+	}
+
 }

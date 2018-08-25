@@ -97,7 +97,7 @@
 			</div>
 		</div>
 		<span class="inputspan"> 
-			<div class="picList" name="pics"  width="300"  height="200+" rows="2" cols="5" >
+			<div class="picList" name="pics"  width="300"  height="200" rows="2" cols="5" >
 				<c:forEach items="${requestScope.info.piclist}" var="p">
 				<item url="${p}" >
 				</c:forEach>
@@ -177,6 +177,7 @@ function  usave() {
 
 $(function(){
 	var ue = UE.getEditor('editor');
+	var lang = ue.getOpt('lang');
 });
 </script>
 </body>

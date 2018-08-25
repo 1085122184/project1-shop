@@ -35,9 +35,14 @@
     <a style="margin-left: 50px">商品介绍：</a><div style="margin-left: 50px;width: 200px">${r.info}</div>
     <a style="margin-left: 50px">商品图片：</a>
     <div style="margin-left: 50px">
-      <c:if test="${r.pic!=null}">
-	   <img src="${r.pic}" width="200" height="150"  />
-	  </c:if>
+    
+    <c:if test="${r.pic!=null}">
+                <c:forEach items="${r.piclist}" var="p">
+				<img src="${p}"  /> <br>
+				</c:forEach>
+      </c:if>
+        <!--  <img src="${r.pic}" width="200" height="150"  />   -->
+	  
     </div>
     
 

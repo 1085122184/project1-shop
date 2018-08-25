@@ -61,6 +61,11 @@ public class type_controller {
 		  pservice.update(p);
 		  return new jsonInfo(1, "");
 	}
+	  @RequestMapping("product-del")
+	  public @ResponseBody jsonInfo delete(int id) {
+		  pservice.delete(id);
+		  return new jsonInfo(1, "");
+	}
 	  
 	  
 	  @RequestMapping("add")
