@@ -117,8 +117,8 @@
 				<button onClick="save();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
 			  </c:if>
 			  <c:if test="${requestScope.info!=null}">
-			    <input name="id" value="${requestScope.info.id}">
-				<button onClick="usave();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 提交</button>
+			    <input name="id" value="${requestScope.info.id}" type="hidden">
+				<button onClick="usave();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 提交修改</button>
 			  </c:if>
 				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>

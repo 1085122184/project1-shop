@@ -47,7 +47,7 @@
 						<th width="50">类型</th>
 						<th width="60">活动信息</th>
 						<th width="100">提示信息</th>
-						<th>描述</th>
+						<th>商品详情</th>
 						<th width="100">商品展示价格</th>
 						<th width="100">市场价格</th>
 						<th width="60">发布状态</th>
