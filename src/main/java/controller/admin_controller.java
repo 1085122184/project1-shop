@@ -68,13 +68,12 @@ public class admin_controller {
 	}
       @RequestMapping("update")
       public @ResponseBody jsonInfo update(Admin ad) {
-    	  System.out.println("ÐÞ¸Ä");
-    	 service.update(ad);
+     	 service.update(ad);
     	 return new jsonInfo(1, "");
 	}
       @RequestMapping("add")
       public String add(ModelMap m,Admin ad) {
-    	  m.put("sexs",ad.sexs);
+        m.put("sexs",ad.sexs);
  		m.put("powers",ad.powers);
 		return "admin/admin-add";
 	}
@@ -83,7 +82,17 @@ public class admin_controller {
 		m.put("info",service.byId(id).get(0));
     	  return add(m, ad);
 	}
-      
+    
+      @RequestMapping("editpass")
+      public String editpass(int id,ModelMap m,Admin ad) {
+		m.put("info",service.byId(id).get(0));
+    	  return "admin/admin-password-edit";
+	}
+      @RequestMapping("updatepass")
+      public @ResponseBody jsonInfo pass(Admin ad) {
+		  service.updatepass(ad);
+    	  return new jsonInfo(1, "");
+	}
       
       
 }

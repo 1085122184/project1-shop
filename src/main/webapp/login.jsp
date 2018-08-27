@@ -21,6 +21,7 @@ if(self!=top){
       alert("您的登陆已超时，请重新登陆！");  
       top.location.href="login.jsp";  
 }
+var a=0;
 </script>
 </head>
 <body>
@@ -43,8 +44,8 @@ if(self!=top){
       </div>
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
-          <input class="input-text size-L" type="text" placeholder="验证码" onblur="if(this.value==''){this.value='验证码:'}" onclick="if(this.value=='验证码:'){this.value='';}" value="验证码:" style="width:150px;">
-          <img src=""> <a id="kanbuq" href="javascript:;">看不清，换一张</a> </div>
+          <input class="input-text size-L" name="code" type="text" placeholder="验证码" style="width:150px;">
+          <img src="img/img.png" onclick="this.src='img/img.png?a='+(a++);"> </div>
       </div>
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
@@ -66,7 +67,7 @@ if(self!=top){
 <div class="footer">Copyright 你的公司名称 by H-ui.admin v3.1</div>
 <script type="text/javascript" src="lib/jquery/1.9.1/jquery.min.js"></script> 
 <script type="text/javascript" src="static/h-ui/js/H-ui.min.js"></script>
-<!--此乃百度统计代码，请自行删除-->
+
 <script>
 
 </script>

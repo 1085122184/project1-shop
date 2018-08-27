@@ -23,13 +23,23 @@
          <filter-class>servlet.loginfilter</filter-class>
          <init-param>
               <param-name>ex</param-name>
-              <param-value>login.jsp,.css,.js,.png,.jpg,login</param-value>
+              <param-value>login.jsp,.css,.js,.png,.jpg,login,img</param-value>
          </init-param>
     </filter>   
     <filter-mapping>
         <filter-name>login</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>  
+	
+	  <servlet>  
+    		<servlet-name>img</servlet-name>  
+   		    <servlet-class>servlet.RandomCode</servlet-class>  
+	</servlet>  
+	<servlet-mapping>  
+    		<servlet-name>img</servlet-name>  
+    		<url-pattern>/img/img.png</url-pattern>  
+	</servlet-mapping> 
+	
 	
 	
   <servlet>  

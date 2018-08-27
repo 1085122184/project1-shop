@@ -1,5 +1,7 @@
 package entity;
 
+import jsonInfo.MD5;
+
 public class Admin {
    public static String[] sexs= {"男","女"};
    public static String[] powers= {"超级管理员","普通管理员","渣渣管理员","不是管理员"};
@@ -25,6 +27,9 @@ public class Admin {
 	}
 	public String getPassword() {
 		return password;
+	}
+	public String getMd5() {
+		return MD5.MD5(password);
 	}
 	public void setPassword(String password) {
 		this.password = password;

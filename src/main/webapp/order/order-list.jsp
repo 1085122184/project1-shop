@@ -47,7 +47,7 @@
 						<th width="100">订单号</th>
 						<th width="60">原金额</th>
 						<th width="100">实际金额</th>
-						<th>用户名</th>
+						<th width="150">用户名</th>
 						<th width="150">地址</th>
 						<th width="50">收货人</th>
 						<th width="100">状态</th>

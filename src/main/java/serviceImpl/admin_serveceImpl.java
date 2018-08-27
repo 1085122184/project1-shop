@@ -41,5 +41,9 @@ public class admin_serveceImpl implements admin_service{
 	public List<Admin> selectbynike(Admin a) {
 		return dao.selectbynike(a);
 	}
+	public void updatepass(Admin ad) {
+         dao.updatepass(ad);	
+	}
+	
 
 }

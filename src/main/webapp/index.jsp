@@ -50,12 +50,13 @@
 		</nav>
 		<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 			<ul class="cl">
-				<li>超级管理员</li>
+				<li>${requestScope.list.name}</li>
 				<li class="dropDown dropDown_hover">
-					<a href="#" class="dropDown_A">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
+					<a href="#" class="dropDown_A">${requestScope.list.power_name} <i class="Hui-iconfont">&#xe6d5;</i></a>
 					<ul class="dropDown-menu menu radius box-shadow">
 						<li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
-						<li><a href="#">切换账户</a></li>
+						<li><a href="login.jsp">切换账户</a></li>
+						<li><a href="javascript:;" onClick="editPass('修改密码','admin/editpass?id='+${requestScope.list.id})" >修改密码</a></li>
 						<li><a href="#">退出</a></li>
 				</ul>
 			</li>
@@ -236,6 +237,11 @@ function myselfinfo(){
 		content: '<div>管理员信息</div>'
 	});
 }
+function editPass(title,url){
+	layer_show(title,url,"350","300");
+
+}
+
 
 /*资讯-添加*/
 function article_add(title,url){
@@ -272,7 +278,6 @@ function member_add(title,url,w,h){
 
 </script> 
 
-<!--此乃百度统计代码，请自行删除-->
 <script>
 var _hmt = _hmt || [];
 (function() {
