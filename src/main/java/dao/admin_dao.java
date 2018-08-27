@@ -12,6 +12,10 @@ import jsonInfo.searchInfo;
 
 @Repository
 public interface admin_dao {
+	@Select("select * from admin")
+	public List<Admin> selectAll();
+	@Select("select * from admin where nike=#{nike}")
+	public List<Admin> selectbynike(Admin a);
     @Select("select * from admin ${where} ${limit}")
 	public List<Admin> select(searchInfo info);
     @Select("select count(id) count from admin ${where}")

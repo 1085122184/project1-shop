@@ -6,6 +6,8 @@ import entity.Admin;
 import jsonInfo.searchInfo;
 
 public interface admin_service {
+	public List<Admin> selectAll();
+	public List<Admin> selectbynike(Admin a);
 	public List<Admin> select(searchInfo info);
 	 public String count(searchInfo info);
 	public void update_off(Integer id);	
