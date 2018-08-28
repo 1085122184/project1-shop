@@ -32,7 +32,7 @@ public class login_controller {
     	    }
     	    
     	    else if(a.getMd5().equals(nikes.get(0).getPassword())&&session.equalsIgnoreCase(code)) {
-    	    	req.getSession().setMaxInactiveInterval(60);
+    	    	req.getSession().setMaxInactiveInterval(600);
     			req.getSession().setAttribute("nike",a.getNike());
     			req.getSession().removeAttribute("msg");
     			m.put("list",service.selectbynike(a).get(0));
