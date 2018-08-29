@@ -47,7 +47,7 @@
 						<th width="50">类型</th>
 						<th width="60">活动信息</th>
 						<th width="100">提示信息</th>
-						<th>商品详情</th>
+						
 						<th width="100">商品展示价格</th>
 						<th width="100">市场价格</th>
 						<th width="60">发布状态</th>
@@ -62,7 +62,7 @@
 						<td>${r.tname}</td>
 						<td><a onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img width="60" class="product-thumb" src="temp/product/Thumb/6204.jpg"></a></td>
 						<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img title="国内品牌" src="static/h-ui.admin/images/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
-						<td class="text-l">${r.info}</td>
+						
 						<td><span class="price">${r.nowprice}</span> 元</td>
 						<td><span class="price">${r.price}</span> 元</td>
 						

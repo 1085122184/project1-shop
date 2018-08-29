@@ -7,36 +7,36 @@
     "imageCompressEnable": true, 
     "imageCompressBorder": 1600, 
     "imageInsertAlign": "none", 
-    "imageUrlPrefix": "http://localhost:8080/shop", 
-    "imagePathFormat": "/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}",
+    "imageUrlPrefix": "http://localhost:8080/", 
+    "imagePathFormat": "../ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}",
                                
     "scrawlActionName": "uploadscrawl", 
     "scrawlFieldName": "upfile", 
-    "scrawlPathFormat": "/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", 
+    "scrawlPathFormat": "../ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", 
     "scrawlMaxSize": 2048000, 
-    "scrawlUrlPrefix": "", 
+    "scrawlUrlPrefix": "http://localhost:8080/", 
     "scrawlInsertAlign": "none",
 
    
     "snapscreenActionName": "uploadimage", 
-    "snapscreenPathFormat": "/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", 
-    "snapscreenUrlPrefix": "", 
+    "snapscreenPathFormat": "../ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", 
+    "snapscreenUrlPrefix": "http://localhost:8080/", 
     "snapscreenInsertAlign": "none", 
 
    
     "catcherLocalDomain": ["127.0.0.1", "localhost", "img.baidu.com"],
     "catcherActionName": "catchimage", 
     "catcherFieldName": "source", 
-    "catcherPathFormat": "/ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", 
-    "catcherUrlPrefix": "", 
+    "catcherPathFormat": "../ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", 
+    "catcherUrlPrefix": "http://localhost:8080/", 
     "catcherMaxSize": 2048000, 
     "catcherAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"],
 
    
     "videoActionName": "uploadvideo", 
     "videoFieldName": "upfile", 
-    "videoPathFormat": "/ueditor/jsp/upload/video/{yyyy}{mm}{dd}/{time}{rand:6}", 
-    "videoUrlPrefix": "",
+    "videoPathFormat": "../ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", 
+    "videoUrlPrefix": "http://localhost:8080/",
     "videoMaxSize": 102400000, 
     "videoAllowFiles": [
         ".flv", ".swf", ".mkv", ".avi", ".rm", ".rmvb", ".mpeg", ".mpg",
@@ -45,8 +45,8 @@
    
     "fileActionName": "uploadfile",
     "fileFieldName": "upfile", 
-    "filePathFormat": "/ueditor/jsp/upload/file/{yyyy}{mm}{dd}/{time}{rand:6}", 
-    "fileUrlPrefix": "", 
+    "filePathFormat": "../ueditor/jsp/upload/image/{yyyy}{mm}{dd}/{time}{rand:6}", 
+    "fileUrlPrefix": "http://localhost:8080/", 
     "fileMaxSize": 51200000, 
     "fileAllowFiles": [
         ".png", ".jpg", ".jpeg", ".gif", ".bmp",
@@ -56,14 +56,14 @@
         ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx", ".pdf", ".txt", ".md", ".xml"
     ], 
     "imageManagerActionName": "listimage", 
-    "imageManagerListPath": "/ueditor/jsp/upload/image/", 
+    "imageManagerListPath": "../ueditor/jsp/upload/image/", 
     "imageManagerListSize": 20, 
-    "imageManagerUrlPrefix": "",
+    "imageManagerUrlPrefix": "http://localhost:8080/",
     "imageManagerInsertAlign": "none",
     "imageManagerAllowFiles": [".png", ".jpg", ".jpeg", ".gif", ".bmp"],
     "fileManagerActionName": "listfile", 
-    "fileManagerListPath": "/ueditor/jsp/upload/file/",
-    "fileManagerUrlPrefix": "", 
+    "fileManagerListPath": "../ueditor/jsp/upload/file/",
+    "fileManagerUrlPrefix": "http://localhost:8080/", 
     "fileManagerListSize": 20, 
     "fileManagerAllowFiles": [
         ".png", ".jpg", ".jpeg", ".gif", ".bmp",
