@@ -16,6 +16,7 @@ import entity.type;
 import jsonInfo.JsonUtil;
 import jsonInfo.JsonUtil.JsonInfo;
 import jsonInfo.jsonInfo;
+import jsonInfo.searchInfo;
 import service.product_service;
 import service.type_service;
 
@@ -29,15 +30,31 @@ public class type_controller {
 	
 	  @RequestMapping("product-category")
      public void select(ModelMap m) {
-		m.put("list",JsonUtil.toString(service.select()));
+		  
+		    m.put("list",JsonUtil.toString(service.select()));
 	}
 	  @RequestMapping("product-list")
 	     public void select1(ModelMap m) {
 			m.put("list",JsonUtil.toString(service.select()));
 		}
 	  @RequestMapping("product-llist")
-	  public void selectproduct(ModelMap m) {
-		  m.put("list",pservice.select());
+	  public void selectproduct(Integer select,String txt,ModelMap m,Product p,searchInfo info) {
+		  if(select==null)select=0;
+	  		String where="";
+	  		if(txt!=null&&txt.length()>0){
+	  			switch (select) {
+	  			case 1:
+	  				where=" where status ="+txt+" ";
+	  				break;
+	 			default:
+	  				where=" where fullname like '%"+txt+"%'";
+	  			}
+	   		}
+	  		info.setWhere(where);
+	  		m.put("select",select);
+	  		m.put("txt",select==0?"'"+txt+"'":txt);
+	        m.put("status", p.statuss);
+		  m.put("list",pservice.select(info));
 	  }
 	  @RequestMapping("product-list-typeid")         //根据类型id查询商品
 	  public void productByid(ModelMap m,int id) {

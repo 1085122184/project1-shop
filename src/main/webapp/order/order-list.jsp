@@ -145,11 +145,6 @@
 						  </c:if>
 						 <td class="td-manage"><a style="text-decoration:none;"   onClick="order_refused()" href="javascript:;" title="已拒绝申请"><i class="Hui-iconfont">&#xe661;</i></a></td>
 						</c:if>
-						
-						
-						
-						
-						
 									
 					</tr>
 				</c:forEach>

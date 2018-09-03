@@ -85,11 +85,14 @@ public class admin_controller {
     
       @RequestMapping("editpass")
       public String editpass(int id,ModelMap m,Admin ad) {
+    	  
 		m.put("info",service.byId(id).get(0));
     	  return "admin/admin-password-edit";
 	}
       @RequestMapping("updatepass")
       public @ResponseBody jsonInfo pass(Admin ad) {
+    	  
+    	  
 		  service.updatepass(ad);
     	  return new jsonInfo(1, "");
 	}

@@ -26,15 +26,11 @@
   <form class="form-horizontal" id="form-admin-add" action="updatepass?id=${requestScope.info.id}"method="post">
     
           
-          <label class="text-r" width="30%">旧密码：</label>
-          <input name="old" id="old" value="${requestScope.info.id}">
-          <input name="oldpassword" id="oldpassword" class="input-text" type="password" autocomplete="off" placeholder="密码" tabindex="1" datatype="*6-16" nullmsg="请输入旧密码！" errormsg="4~16个字符，区分大小写！"> 
-         
+          
           <label class="text-r" width="30%">新密码：</label>
           <input name="password" id="password" class="input-text" type="password" autocomplete="off" placeholder="设置密码" tabindex="2" datatype="*6-16"  nullmsg="请输入您的新密码！" errormsg="4~16个字符，区分大小写！" > 
-          
           <label class="text-r" width="30%">再次输入新密码：</label>
-          <input name="password2" id="newpassword2" class="input-text" type="password" autocomplete="off" placeholder="确认新密码" tabindex="3" datatype="*" recheck="newpassword" nullmsg="请再输入一次新密码！" errormsg="您两次输入的新密码不一致！"> 
+          <input name="password2" id="password2" class="input-text" type="password" autocomplete="off" placeholder="确认新密码" tabindex="3" datatype="*" recheck="newpassword" nullmsg="请再输入一次新密码！" errormsg="您两次输入的新密码不一致！"> 
           <button type="submit"  class="btn btn-success radius" style="margin-top: 2px;margin-left: 250px"><i class="icon-ok"></i> 确定</button>
        
   </form>
@@ -73,7 +69,7 @@ $(function(){
 			$(form).ajaxSubmit({
 				type: 'post',
 				url: $(form).action ,
-				success: function(code){
+				success: function(){
 					layer.msg('密码修改成功',{icon:1,time:1000,end:function(){
 						var index = parent.layer.getFrameIndex(window.name);
 						window.parent.location.reload();
@@ -98,19 +94,7 @@ $(function(){
 
 
 
-function  save(id) {
-	var url = "updatepass?id="+id;
-		$.ajax({
-			type : "post",
-			async : true,  //yibu请求
-			url : url,
-			timeout:1000,
-			data: $('.form-horizontal').serialize(),
-			success:function(dates){
-				window.parent.location.reload();
-			}
-		});
-}
+
 
 </script>
 <script>

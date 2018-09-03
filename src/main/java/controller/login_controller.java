@@ -42,6 +42,11 @@ public class login_controller {
    			return "login";
     		}
 	}
-    
+    @RequestMapping("off")
+    public String off(HttpServletRequest req) {
+    	System.out.println(111);
+    	req.getSession().removeAttribute("nike");
+    	return "login";
+    }
     
 }

@@ -10,11 +10,12 @@ import org.springframework.stereotype.Repository;
 
 import entity.Admin;
 import entity.Product;
+import jsonInfo.searchInfo;
 
 @Repository
 public interface product_dao {
-	@Select("select p.*,t.name tname from product p inner join type t on t.id=p.type_id")
-	public List<Product> select();
+	@Select("select p.*,t.name tname from product p inner join type t on t.id=p.type_id ${where}")
+	public List<Product> select(searchInfo info);
     @Insert("insert into product(fullname,type_id,priority,nowprice,price,activity,sale,tip,comments,info,status,collectcount,salecount,pics) value(#{fullname},#{type_id},#{priority},#{nowprice},#{price},#{activity},#{sale},#{tip},#{comments},#{info},0,0,0,#{pics})")
 	public void insert(Product p);
     @Update("update product set fullname=#{fullname},priority=#{priority},nowprice=#{nowprice},price=#{price},activity=#{activity},sale=#{sale},tip=#{tip},comments=#{comments},info=#{info},pics=#{pics} where id=#{id}")

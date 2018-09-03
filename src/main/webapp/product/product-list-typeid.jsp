@@ -30,24 +30,17 @@
 <div class="page-container">
 	<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 商品管理 <span class="c-gray en">&gt;</span> 产品列表 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 	<div class="page-container">
-		<div class="text-c"> 日期范围：
-			<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d\'}' })" id="logmin" class="input-text Wdate" style="width:120px;">
-			-
-			<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',maxDate:'%y-%M-%d' })" id="logmax" class="input-text Wdate" style="width:120px;">
-			<input type="text" name="" id="" placeholder=" 产品名称" style="width:250px" class="input-text">
-			<button name="" id="" class="btn btn-success" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜商品</button>
-		</div>
-		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a><a class="btn btn-primary radius" onclick="product_add('添加产品','product-add?id=${requestScope.list1}')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+		
+		<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a><a class="btn btn-primary radius" onclick="product_add('添加产品','product-add?id=${requestScope.list1}')" href="javascript:;"><i class="Hui-iconfont">&#xe600;</i> 添加产品</a> </span><!-- <span class="r">共有数据：<strong>54</strong> 条</span> -->  </div>
 		<div class="mt-20">
 			<table class="table table-border table-bordered table-bg table-hover table-sort">
 				<thead>
 					<tr class="text-c">
 						<th width="40"><input name="" type="checkbox" value=""></th>
+						<th width="60">活动信息</th>
 						<th width="100">商品名称</th>
 						<th width="50">类型</th>
-						<th width="60">活动信息</th>
-						<th width="100">提示信息</th>
-						
+						<th width="100">活动信息</th>
 						<th width="100">商品展示价格</th>
 						<th width="100">市场价格</th>
 						<th width="60">发布状态</th>
@@ -58,10 +51,10 @@
 				<c:forEach items="${requestScope.list}" var="r">
 					<tr class="text-c va-m">
 						<td><input name="" type="checkbox" value=""></td>
+						<td><img width="60" class="product-thumb" src="${r.pic}"></td>
 						<td>${r.fullname}</td>
 						<td>${r.tname}</td>
-						<td><a onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img width="60" class="product-thumb" src="temp/product/Thumb/6204.jpg"></a></td>
-						<td class="text-l"><a style="text-decoration:none" onClick="product_show('哥本哈根橡木地板','product-show.html','10001')" href="javascript:;"><img title="国内品牌" src="static/h-ui.admin/images/cn.gif"> <b class="text-success">圣象</b> 哥本哈根橡木地板KS8373</a></td>
+						<td class="text-l">${r.activity}</td>
 						
 						<td><span class="price">${r.nowprice}</span> 元/个</td>
 						<td><span class="price">${r.price}</span> 元/个</td>

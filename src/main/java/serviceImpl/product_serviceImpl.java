@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import dao.product_dao;
 import entity.Product;
+import jsonInfo.searchInfo;
 import service.product_service;
 @Service
 public class product_serviceImpl implements product_service{
@@ -17,9 +18,7 @@ public class product_serviceImpl implements product_service{
        dao.insert(p);
 	}
 
-	public List<Product> select() {
-		return dao.select();
-	}
+	
 
 	public void update_off(int id) {
 		dao.update_off(id);
@@ -48,6 +47,13 @@ public class product_serviceImpl implements product_service{
 
 	public void delete(int id) {
 		dao.delete(id);
+	}
+
+
+
+	public List<Product> select(searchInfo info) {
+		// TODO Auto-generated method stub
+		return dao.select(info);
 	}
 
 }

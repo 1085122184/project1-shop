@@ -3,9 +3,10 @@ package service;
 import java.util.List;
 
 import entity.Product;
+import jsonInfo.searchInfo;
 
 public interface product_service {
-	public List<Product> select();
+	public List<Product> select(searchInfo info);
 	public void insert(Product p);
 	public void update(Product p);
 	public void delete(int id);
