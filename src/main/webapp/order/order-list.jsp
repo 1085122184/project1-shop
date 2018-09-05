@@ -86,7 +86,7 @@
  						<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.status_name}</span></td>
  						<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.assessstatus_name}</span></td>
 						  </c:if>
-						 <td class="td-manage"><a style="text-decoration:none;"   onClick="order_send()" href="javascript:;" title="发货"><i class="Hui-iconfont">&#xe634;</i></a></td>
+						 <td class="td-manage" id="content${r.id}"><a id="${r.id}" style="text-decoration:none;"   onClick="order_send(this,${r.id})" href="javascript:;" title="发货"><i class="Hui-iconfont">&#xe634;</i></a></td>
 						</c:if>
 						<c:if test="${r.status==2}">
 						  <c:if test="${r.assessstatus==0}">
@@ -120,7 +120,7 @@
  						<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.assessstatus_name}</span></td>
 						  </c:if> 
 						 <td class="td-manage" id="content${r.id}"><a id="${r.id}" style="text-decoration:none;"   onClick="order_agree(this,${r.id})" href="javascript:;" title="审核通过"><i class="Hui-iconfont">&#xe6e1;</i></a>
-						<a id="${r.id}1" style="text-decoration:none;"   onClick="order_refuse(this,${r.id})" href="javascript:;" title="审核不通过"><i class="Hui-iconfont">&#xe6dd;</i></a></td>
+						<a id="1${r.id}" style="text-decoration:none;"   onClick="order_refuse(this,${r.id})" href="javascript:;" title="审核不通过"><i class="Hui-iconfont">&#xe6dd;</i></a></td>
 						</c:if>
 						<c:if test="${r.status==5}">
 						  <c:if test="${r.assessstatus==0}">
@@ -187,6 +187,29 @@ function order_return() {
 
 function order_refused() {
 	layer.msg('已拒绝申请!',{icon:1,time:1000});
+}
+function order_send(obj,id) {
+	layer.confirm('确认发货吗？',function(index){
+		var url = "send?id="+id;
+		$.ajax({
+			type : "post",
+			async : false,  //同步请求
+			url : url,
+			timeout:1000,
+			success:function(dates){
+			$('#mainContent'+dates[0].id).html(dates[0].status_name);
+			$('#mainContent'+dates[0].id).css("background-color","#5A98DE");
+			$("#"+id).remove();
+			$('#content'+id).append(("<a style='text-decoration:none;'onClick='order_waittake()' href='javascript:;' title='已发货'><i class='Hui-iconfont'>&#xe656;</i></a>"));
+			//$('#mainContent'+dates[0].id).remove($(".remove"));
+			layer.msg('已同意退货!',{icon:1,time:1000});
+			},
+			error: function() {
+	           // alert("失败，请稍后再试！");
+	        }
+		});
+		
+	});
 }
 
 function order_agree(obj,id){

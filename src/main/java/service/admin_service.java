@@ -16,4 +16,5 @@ public interface admin_service {
 	public List<Admin> byId(int id);
 	public void update(Admin ad);
 	public void updatepass(Admin ad);
+	public void reset(Admin ad);
 }

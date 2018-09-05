@@ -29,6 +29,11 @@ public class order_serviceImpl implements order_service{
 	public void refuse(int id) {
 		dao.refuse(id);
 	}
+
+	public void send(int id) {
+		dao.send(id);
+		
+	}
 	
 
 }

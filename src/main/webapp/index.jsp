@@ -78,6 +78,7 @@
 </header>
 <aside class="Hui-aside">
 	<div class="menu_dropdown bk_2">
+	   <c:if test="${sessionScope.nike.power==0}">
 		<dl id="menu-admin">
 			<dt><i class="Hui-iconfont">&#xe62d;</i> 管理员管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
@@ -86,6 +87,7 @@
 			   </ul>
 		    </dd>
 	    </dl>
+	   </c:if>
 	    <dl id="menu-product">
 			<dt><i class="Hui-iconfont">&#xe620;</i> 商品管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
@@ -108,7 +110,7 @@
 			<dt><i class="Hui-iconfont">&#xe616;</i> 购物车<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 			<dd>
 				<ul>
-					<li><a data-href="product/product-brand.jsp" data-title="购物车管理" href="javascript:void(0)">购物车管理</a></li>
+					<li><a data-href="shopcar/selectshopcar" data-title="购物车管理" href="javascript:void(0)">购物车管理</a></li>
 			   </ul>
 		    </dd>
 	    </dl>

@@ -18,5 +18,7 @@ public interface order_dao {
     public void refuse(int id);
     @Select("select * from orders where id=#{id}")
     public List<Order> byId(int id);
+    @Update("update orders set status=2 where id=#{id}") 
+    public void send(int id);
 	
 }

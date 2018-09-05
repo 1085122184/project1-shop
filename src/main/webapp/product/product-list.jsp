@@ -29,7 +29,7 @@
 <table class="table" ">
 	<tr>
 		<td width="200" class="va-t" > <ul id="treeDemo" class="ztree"></ul></td>
-		<td height="400" class="va-t" ><iframe style="height: 600px" ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=390px SRC="product-list-id.jsp"></iframe></td>
+		<td height="400" class="va-t" ><iframe style="height: 600px" ID="testIframe" Name="testIframe" FRAMEBORDER=0 SCROLLING=AUTO width=100%  height=390px SRC=""></iframe></td>
 	</tr>
 </table>
 

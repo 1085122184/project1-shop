@@ -4,7 +4,7 @@ import jsonInfo.MD5;
 
 public class Admin {
    public static String[] sexs= {"男","女"};
-   public static String[] powers= {"超级管理员","普通管理员","渣渣管理员","不是管理员"};
+   public static String[] powers= {"超级管理员","普通管理员"};
    public static String[] statuss= {"在职","离职"};
 	int id;
 	int sex;

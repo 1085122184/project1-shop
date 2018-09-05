@@ -33,5 +33,13 @@ public class order_controller {
     	List<Order> list = service.byId(id);
     	return list;
     }
+    @RequestMapping("send")
+    public @ResponseBody List<Order> send(int id) {
+    	service.send(id);
+    	List<Order> list = service.byId(id);
+    	return list;
+    }
+    
+    
     
 }

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import entity.Admin;
-
+import jsonInfo.MD5;
 import jsonInfo.jsonInfo;
 import jsonInfo.searchInfo;
 import service.admin_service;
@@ -91,11 +91,14 @@ public class admin_controller {
 	}
       @RequestMapping("updatepass")
       public @ResponseBody jsonInfo pass(Admin ad) {
-    	  
-    	  
 		  service.updatepass(ad);
     	  return new jsonInfo(1, "");
 	}
-      
+      @RequestMapping("reset")
+      public @ResponseBody jsonInfo reset(Admin ad) {
+ 		 
+    	  service.reset(ad);
+    	  return new jsonInfo(1, "");
+	}
       
 }

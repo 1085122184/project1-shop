@@ -122,7 +122,24 @@ function admin_start(obj,id){
 
 
 }
-
+<!--重置密码 -->
+function admin_reset(obj,id){
+	layer.confirm('确认重置密码吗？',function(index){
+		var url = "reset?id="+id+"&password=123";
+		$.ajax({
+			type : "post",
+			async : false,  //同步请求
+			url : url,
+			timeout:1000,
+			success:function(dates){
+			layer.msg('密码重置成功!',{icon:1,time:1000});
+			},
+			error: function() {
+	           // alert("失败，请稍后再试！");
+	        }
+		});
+	});
+}
 $(function(){
 	$(".sselect").on("change",function(){
 		$(".sinput").css("display","none").attr("disabled","disabled");
@@ -161,7 +178,7 @@ $(function(){
 		
 	</form>
 	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"><a href="javascript:;" onclick="datadel()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> <a href="javascript:;" onclick="admin_add('添加管理员','add','800','600')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加管理员</a></span> <span class="r">共有数据：<strong>${requestScope.counts}</strong> 条</span> </div>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <span class="l"> <a href="javascript:;" onclick="admin_add('添加管理员','add','800','600')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加管理员</a></span> <span class="r">共有数据：<strong>${requestScope.counts}</strong> 条</span> </div>
 	<table class="table table-border table-bordered table-bg">
 		<thead>
 			<tr>
@@ -191,13 +208,15 @@ $(function(){
 				<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}">${r.status_name}</span></td>
 				<td class="td-manage"><a style="text-decoration:none;" id="off${r.id}"  onClick="admin_stop(this,${r.id})" href="javascript:;" title="开除"><i class="Hui-iconfont">&#xe631;</i></a>
 				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="重新启用" style="text-decoration:none;display: none;"><i class="Hui-iconfont">&#xe615;</i></a>
-				                      <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','edit?id=${r.id}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a></td>
+				                      <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','edit?id=${r.id}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+				                      <a title="重置密码" href="javascript:;" onclick="admin_reset(this,${r.id})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe68f;</i></a></td>
 				</c:if>
 				<c:if test="${r.status==1}">
 				<td class="td-status"><span class="label label-success radius" id="mainContent${r.id}" style="background-color: #999999">${r.status_name}</span></td>
 				<td class="td-manage"><a style="text-decoration:none;display: none;" id="off${r.id}"  onClick="admin_stop(this,${r.id})" href="javascript:;" title="开除"><i class="Hui-iconfont">&#xe631;</i></a>
 				                      <a id="on${r.id}" onClick="admin_start(this,${r.id})" href="javascript:;" title="重新启用" style="text-decoration:none;"><i class="Hui-iconfont">&#xe615;</i></a>
-				                      <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','edit?id=${r.id}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a></td>
+				                      <a title="编辑" href="javascript:;" onclick="admin_edit('管理员编辑','edit?id=${r.id}','1','800','500')" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+				                      <a title="重置密码" href="javascript:;" onclick="admin_reset(this,${r.id})" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe68f;</i></a></td>
 				</c:if>
 				
 				

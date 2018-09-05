@@ -9,4 +9,5 @@ public interface order_service {
 	public void agree(int id);
 	public void refuse(int id);
 	public List<Order> byId(int id);
+	public void send(int id);
 }

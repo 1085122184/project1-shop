@@ -44,6 +44,10 @@ public class admin_serveceImpl implements admin_service{
 	public void updatepass(Admin ad) {
          dao.updatepass(ad);	
 	}
+	public void reset(Admin ad) {
+		dao.reset(ad);
+		
+	}
 	
 
 }
