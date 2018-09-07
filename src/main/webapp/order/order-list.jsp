@@ -43,12 +43,12 @@
 				<thead>
 					<tr class="text-c">
 						<th width="40"><input name="" type="checkbox" value=""></th>
-						<th width="100">日期</th>
+						<th width="">日期</th>
 						<th width="100">订单号</th>
 						<th width="60">原金额</th>
 						<th width="100">实际金额</th>
 						<th width="150">用户名</th>
-						<th width="150">地址</th>
+						<th width="160">地址</th>
 						<th width="50">收货人</th>
 						<th width="100">状态</th>
 						<th width="60">评价状态</th>
@@ -64,7 +64,7 @@
 						<td>${r.amount}</td>
 						<td>${r.nowamount}</td>
 						<td>${r.uname}</td>
-						<td>${r.address}</td>
+						<td>${r.province4}${r.city4}${r.area4}${r.address}</td>
 						<td>${r.addrname}</td>
 						<c:if test="${r.status==0}">
 						  <c:if test="${r.assessstatus==0}">

@@ -15,6 +15,33 @@ public class Order {
 	String addrname;
 	String uname;
 	String address;
+	String city4;
+	String area4;
+	String province4;
+	
+	public String getCity4() {
+		return city4;
+	}
+
+	public void setCity4(String city4) {
+		this.city4 = city4;
+	}
+
+	public String getArea4() {
+		return area4;
+	}
+
+	public void setArea4(String area4) {
+		this.area4 = area4;
+	}
+
+	public String getProvince4() {
+		return province4;
+	}
+
+	public void setProvince4(String province4) {
+		this.province4 = province4;
+	}
 	public static String[] statuss = {"未支付","已支付","已发货","已收货","申请退货","已退货","已拒绝退货"};
 	public static String[] assessstatuss = {"未评价","已评价"};
 	

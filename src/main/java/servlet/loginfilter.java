@@ -30,7 +30,7 @@ public class loginfilter implements Filter {
 		    if(req.getSession().getAttribute("nike")!=null||req.getParameter("nike")!=null) {
 				fc.doFilter(req, resp);
 			}else {
-				resp.sendRedirect("../login.jsp");
+				resp.sendRedirect("login.jsp");
 			}
 		
 	}

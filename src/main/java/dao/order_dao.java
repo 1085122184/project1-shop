@@ -10,7 +10,7 @@ import entity.Order;
 
 @Repository
 public interface order_dao {
-	@Select("select o.*,addr.addr address,addr.name addrname,u.email uname from orders o inner join address addr inner join user u on o.user_id=u.id and o.address_id=addr.id ")
+	@Select("select o.*,addr.addr address,addr.name addrname,addr.*,u.email uname from orders o inner join address addr inner join user u on o.user_id=u.id and o.address_id=addr.id ")
 	public List<Order> select();
     @Update("update orders set status=5 where id=#{id}")
 	public void agree(int id);
